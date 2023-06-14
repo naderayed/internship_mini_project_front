@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="col-md-10">
+    <form class="form align-items-center" [formGroup]="carForm" (ngSubmit)="onSubmit()">
+      <div style="margin-top: -40px; margin-right: 40px" class="alert alert-primary" role="alert">
+        Add New Car!
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label">Car Model</label>
+            <input class="form-control" formControlName="model" placeholder="Car model">
+            <div class="text-danger" *ngIf="model.touched && model.hasError('required')">
+              Model is required
+            </div>
+            <div class="text-success" *ngIf="model.touched && !model.errors">
+              Looks good!
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label">Horse Power</label>
+            <input type="number" class="form-control" formControlName="horsePower">
+            <div class="text-danger" *ngIf="horsePower.touched && horsePower.hasError('required')">
+              Horse Power is required
+            </div>
+            <div class="text-success" *ngIf="horsePower.touched && !horsePower.errors">
+              Horse Power looks good!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label">Year of Manufacture</label>
+            <input type="date" class="form-control" formControlName="yearOfManufacture" placeholder="Car model">
+            <div class="text-danger" *ngIf="yearOfManufacture.touched && yearOfManufacture.hasError('required')">
+              Year of Manufacture is required
+            </div>
+            <div class="text-success" *ngIf="yearOfManufacture.touched && !yearOfManufacture.errors">
+              Year of Manufacture looks good!
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label">Color</label>
+            <input type="color" class="form-control" formControlName="color" style="width: 50px">
+            <div class="text-danger" *ngIf="color.touched && color.hasError('required')">
+              Color is required
+            </div>
+            <div class="text-success" *ngIf="color.touched && !color.errors">
+              Looks good!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" style="text-align: center;">
+          <button  type="submit" class="btn btn-primary" [disabled]="!carForm.valid">
+            Add Car
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
